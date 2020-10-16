@@ -8,6 +8,8 @@ const API_URL =
 function App() {
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [score, setScore] = useState(0)
+  const [gameEnded, setGameEnded] = useState(false)
 
   useEffect(() => {
     fetch(API_URL)
@@ -18,10 +20,22 @@ function App() {
   }, [])
 
   const handleAnswer = answer => {
-    setCurrentIndex(currentIndex + 1)
+    const newIndex = currentIndex + 1
+    setCurrentIndex(newIndex)
+
+    if (answer === questions[currentIndex].correct_answer) {
+      setScore(score + 1)
+    }
+    if (newIndex >= questions.length) {
+      setGameEnded(true)
+    }
   }
 
-  return questions.length > 0 ? (
+  return gameEnded ? (
+    <div className='bg-white p-10 rounded-lg shadow-xl text-purple-800'>
+      <h2 className='text-2xl'> Your score is {score}</h2>
+    </div>
+  ) : questions.length > 0 ? (
     <div className='container'>
       <Questionnaire
         data={questions[currentIndex]}

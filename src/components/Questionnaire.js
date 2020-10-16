@@ -17,7 +17,10 @@ const Questionnaire = ({
       </div>
       <div className='mt-4 flex flex-wrap justify-between'>
         {shuffledAnswers.map(answer => (
-          <button className='bg-white w-5/12 p-4 text-purple-800 rounded-lg font-semibold mb-4 shadow-lg' onClick={() => handleAnswer(answer) }>
+          <button
+            className='bg-white w-5/12 p-4 text-purple-800 rounded-lg font-semibold mb-4 shadow-lg'
+            onClick={() => handleAnswer(answer)}
+          >
             {answer}
           </button>
         ))}
