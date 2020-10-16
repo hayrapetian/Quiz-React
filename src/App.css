@@ -3,7 +3,7 @@
   font-family: 'Roboto', sans-serif;
 }
 .loader {
-  border-top-color: #44abc8;
+  border-top-color: #3891b1;
   -webkit-animation: spinner 1.5s linear infinite;
   animation: spinner 1.5s linear infinite;
 }
@@ -24,4 +24,13 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.score-bad {
+  color: #c53030;
+}
+.score-good {
+  color: #38a169;
+}
+.numbers-resizing {
+  font-weight: 600;
 }

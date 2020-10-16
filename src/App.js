@@ -33,7 +33,19 @@ function App() {
 
   return gameEnded ? (
     <div className='bg-white p-10 rounded-lg shadow-xl text-purple-800'>
-      <h2 className='text-2xl'> Your score is {score}</h2>
+      <h2 className='text-2xl'>
+        You answered correctly{' '}
+        <span
+          className={
+            score < 5
+              ? 'score-bad numbers-resizing'
+              : 'score-good numbers-resizing'
+          }
+        >
+          {score}
+        </span>{' '}
+        out of <span className='numbers-resizing'>10</span> questions.
+      </h2>
     </div>
   ) : questions.length > 0 ? (
     <div className='container'>
@@ -44,7 +56,7 @@ function App() {
     </div>
   ) : (
     <>
-      <div class='loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32'></div>
+      <div className='loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32'></div>
     </>
   )
 }
